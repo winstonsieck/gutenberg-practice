@@ -35,6 +35,7 @@ export default registerBlockType(
             return (
                 <div>
                     <p>{ 'GC custom block' }</p>
+                    <Button />
                 </div>
             );
         },

@@ -2,29 +2,33 @@ const { Component } = wp.element;
 
 class Button extends Component {
 
-    constructor ( props ) {
+    constructor( props ) {
         super(props);
         this.state = {
-            count: 0
+            count: 0,
         };
     }
 
-//Uncommenting either function below breaks the block
+    handleIncrement() {
+        return() => {
+             this.setState( {
+                count: this.state.count +1,
+            } );
+        }
+    }
 
-    // handleIncrement = () => {
-    //     alert('Hello world!');
-    // };
-
-    // handleIncrement = () => {
-    //     this.setState({ count: this.state.count + 1 });
-    // };
+    handleAlert() {
+        return() => {
+            alert('Hello World!');
+        }
+    }
 
     render() {
         return (
             <div>
                 <h2>{this.state.count}</h2>
-                <button onClick={ this.handleIncrement }>{ '+Up' }</button>
-                <button onClick={ "alert('Hello World!')" }>{ 'Say Hi' }</button>
+                <button onClick={ this.handleIncrement() }>+Up</button>
+                <button onClick={ this.handleAlert() }>Say Hi</button>
             </div>
         );
     }
